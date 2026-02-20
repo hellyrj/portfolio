@@ -3,9 +3,9 @@ import type { Project } from '../types';
 export const projects: Project[] = [
   {
     id: 1,
-    title: "E-Commerce Platform",
+    title: "BookStore E-Commerce Platform",
     shortDescription: "Full-stack e-commerce site with real-time inventory",
-    fullDescription: "A complete e-commerce solution with user authentication, product management, and real-time inventory tracking using WebSockets.",
+    fullDescription: "A complete e-commerce solution with user authentication, product management.",
     image: "/images/projects/ecommerce/main.jpg",
     screenshots: [
       "/images/projects/ecommerce/home.jpg",
@@ -28,4 +28,5 @@ export const projects: Project[] = [
     featured: true,
     completionDate: new Date('2024-01-15')
   },
+  
 ];
