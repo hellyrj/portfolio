@@ -20,10 +20,19 @@ export const useTheme = (): UseThemeReturn => {
   });
 
   useEffect(() => {
-    // Update localStorage and document class
+    // Update localStorage and document attribute
     localStorage.setItem('theme', theme);
-    document.documentElement.classList.remove('light', 'dark');
-    document.documentElement.classList.add(theme);
+    
+    // Set data-theme attribute on document
+    if (theme === 'light') {
+      document.documentElement.setAttribute('data-theme', 'light');
+      document.documentElement.classList.remove('dark');
+      document.documentElement.classList.add('light');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'dark');
+      document.documentElement.classList.remove('light');
+      document.documentElement.classList.add('dark');
+    }
   }, [theme]);
 
   const toggleTheme = (): void => {
