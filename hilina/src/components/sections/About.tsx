@@ -1,4 +1,4 @@
-import React from 'react';
+import '../../styles/animations.css';
 
 const About = () => {
   return (
@@ -56,7 +56,7 @@ const About = () => {
                       <span className="text-cyan-400 text-sm">90%</span>
                     </div>
                     <div className="w-full h-2 bg-cyan-500/30 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-full" style={{ width: '90%' }} />
+                      <div className="h-full bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-full w-11/12" />
                     </div>
                   </div>
                   <div>
@@ -65,7 +65,7 @@ const About = () => {
                       <span className="text-cyan-400 text-sm">85%</span>
                     </div>
                     <div className="w-full h-2 bg-cyan-500/30 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-full" style={{ width: '85%' }} />
+                      <div className="h-full bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-full w-10/12" />
                     </div>
                   </div>
                   <div>
@@ -74,7 +74,7 @@ const About = () => {
                       <span className="text-cyan-400 text-sm">95%</span>
                     </div>
                     <div className="w-full h-2 bg-cyan-500/30 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-full" style={{ width: '95%' }} />
+                      <div className="h-full bg-gradient-to-r from-cyan-400 to-cyan-500 rounded-full" />
                     </div>
                   </div>
                 </div>
@@ -89,7 +89,7 @@ const About = () => {
                       <span className="text-purple-400 text-sm">88%</span>
                     </div>
                     <div className="w-full h-2 bg-purple-500/30 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-purple-400 to-purple-500 rounded-full" style={{ width: '88%' }} />
+                      <div className="h-full bg-gradient-to-r from-purple-400 to-purple-500 rounded-full w-11/12" />
                     </div>
                   </div>
                   <div>
@@ -98,7 +98,7 @@ const About = () => {
                       <span className="text-purple-400 text-sm">82%</span>
                     </div>
                     <div className="w-full h-2 bg-purple-500/30 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-purple-400 to-purple-500 rounded-full" style={{ width: '82%' }} />
+                      <div className="h-full bg-gradient-to-r from-purple-400 to-purple-500 rounded-full w-10/12" />
                     </div>
                   </div>
                   <div>
@@ -107,7 +107,7 @@ const About = () => {
                       <span className="text-purple-400 text-sm">75%</span>
                     </div>
                     <div className="w-full h-2 bg-purple-500/30 rounded-full overflow-hidden">
-                      <div className="h-full bg-gradient-to-r from-purple-400 to-purple-500 rounded-full" style={{ width: '75%' }} />
+                      <div className="h-full bg-gradient-to-r from-purple-400 to-purple-500 rounded-full w-3/4" />
                     </div>
                   </div>
                 </div>
@@ -164,7 +164,7 @@ const About = () => {
                 <div className="absolute -top-4 -right-4 w-16 h-16 bg-gradient-to-r from-cyan-400 to-purple-500 rounded-2xl flex items-center justify-center animate-bounce">
                   <span className="text-white font-bold text-2xl">⚡</span>
                 </div>
-                <div className="absolute -bottom-4 -left-4 w-14 h-14 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center animate-bounce" style={{ animationDelay: '0.5s' }}>
+                <div className="absolute -bottom-4 -left-4 w-14 h-14 bg-gradient-to-r from-purple-400 to-pink-500 rounded-2xl flex items-center justify-center animate-bounce animation-delay-500">
                   <span className="text-white font-bold text-xl">💡</span>
                 </div>
               </div>

@@ -1,120 +1,113 @@
-import { useState } from 'react';
+// components/layout/Navbar.tsx
+import React, { useState, useEffect } from 'react';
 
 interface NavbarProps {
-  theme: 'light' | 'dark';
-  toggleTheme: () => void;
+  theme?: 'light' | 'dark';
+  toggleTheme?: () => void;
 }
 
-const Navbar = ({ theme, toggleTheme }: NavbarProps) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
+const Navbar: React.FC<NavbarProps> = ({ theme, toggleTheme }) => {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
+  // Change navbar style on scroll
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
   const navLinks = [
-    { href: '#home', label: 'HOME' },
-    { href: '#about', label: 'ABOUT' },
-    { href: '#skills', label: 'SKILLS' },
-    { href: '#projects', label: 'PROJECTS' },
-    { href: '#contact', label: 'CONTACT' },
+    { name: 'Home', href: '#home' },
+    { name: 'About', href: '#about' },
+    { name: 'Skills', href: '#skills' },
+    { name: 'Projects', href: '#projects' },
+    { name: 'Contact', href: '#contact' },
   ];
 
   return (
-    <nav className="fixed top-0 left-0 right-0 z-50 bg-black/90 backdrop-blur-xl border-b border-cyan-500/30">
+    <nav 
+      className={`
+        fixed top-0 w-full z-50 transition-all duration-300
+        ${isScrolled 
+          ? 'bg-slate-900/95 backdrop-blur-md border-b border-cyan-500/20 py-3' 
+          : 'bg-transparent py-5'
+        }
+      `}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-16">
+        <div className="flex justify-between items-center">
+          
           {/* Logo */}
-          <div className="flex-shrink-0">
-            <a 
-              href="#home" 
-              className="text-xl sm:text-2xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500 tracking-wider hover:from-purple-400 hover:to-cyan-500 transition-all duration-300"
-            >
+          <a 
+            href="#home" 
+            className="text-2xl font-bold"
+          >
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
               HILINA
-            </a>
-          </div>
+            </span>
+          </a>
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center space-x-10">
             {navLinks.map((link) => (
               <a
-                key={link.href}
+                key={link.name}
                 href={link.href}
-                className="relative px-3 py-2 text-cyan-400 font-mono text-sm font-semibold tracking-wider hover:text-purple-400 transition-all duration-300 group"
+                className="text-gray-300 hover:text-cyan-400 transition-colors duration-200 font-medium"
               >
-                {link.label}
-                <div className="absolute bottom-0 left-0 w-full h-0.5 bg-gradient-to-r from-cyan-400 to-purple-500 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300" />
+                {link.name}
               </a>
             ))}
-            
-            {/* Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="p-2 rounded-lg border border-cyan-500/50 text-cyan-400 hover:border-purple-500/50 hover:text-purple-400 hover:bg-purple-500/10 transition-all duration-300"
-              aria-label="Toggle theme"
-            >
-              <div className="w-5 h-5 flex items-center justify-center">
-                {theme === 'light' ? (
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z" />
-                  </svg>
-                ) : (
-                  <svg className="w-4 h-4" fill="currentColor" viewBox="0 0 20 20">
-                    <path fillRule="evenodd" d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707-.707a1 1 0 011.414 1.414zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM17 11a1 1 0 100-2H3a1 1 0 000 2h1z" clipRule="evenodd" />
-                  </svg>
-                )}
-              </div>
-            </button>
+
+            {/* Theme Toggle Button */}
+            {toggleTheme && (
+              <button
+                onClick={toggleTheme}
+                className="p-2 rounded-lg border border-cyan-500/30 hover:border-cyan-400 hover:bg-cyan-400/10 transition-all duration-200"
+                aria-label="Toggle theme"
+              >
+                {theme === 'dark' ? '🌞' : '🌙'}
+              </button>
+            )}
           </div>
 
-          {/* Mobile menu button */}
-          <div className="md:hidden">
-            <button
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="p-2 rounded-lg border border-cyan-500/50 text-cyan-400 hover:border-purple-500/50 hover:text-purple-400 transition-all duration-300"
-              aria-label="Toggle menu"
-            >
-              <svg
-                className="h-6 w-6"
-                fill="none"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth="2"
-                viewBox="0 0 24 24"
-                stroke="currentColor"
+          {/* Mobile Menu Button */}
+          <button
+            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+            className="md:hidden p-2 rounded-lg border border-cyan-500/30 hover:border-cyan-400 hover:bg-cyan-400/10 transition-all duration-200"
+            aria-label="Toggle menu"
+          >
+            <div className="w-6 h-5 relative flex flex-col justify-between">
+              <span className={`w-full h-0.5 bg-cyan-400 transform transition-all duration-300 ${isMobileMenuOpen ? 'rotate-45 translate-y-2' : ''}`} />
+              <span className={`w-full h-0.5 bg-cyan-400 transition-all duration-300 ${isMobileMenuOpen ? 'opacity-0' : ''}`} />
+              <span className={`w-full h-0.5 bg-cyan-400 transform transition-all duration-300 ${isMobileMenuOpen ? '-rotate-45 -translate-y-2' : ''}`} />
+            </div>
+          </button>
+        </div>
+
+        {/* Mobile Menu Dropdown */}
+        <div className={`
+          md:hidden absolute left-0 right-0 bg-slate-900/95 backdrop-blur-md border-b border-cyan-500/20
+          transition-all duration-300 overflow-hidden
+          ${isMobileMenuOpen ? 'max-h-96 py-4' : 'max-h-0'}
+        `}>
+          <div className="flex flex-col space-y-3 px-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.name}
+                href={link.href}
+                className="text-gray-300 hover:text-cyan-400 transition-colors duration-200 py-2 px-3 rounded-lg hover:bg-cyan-400/10"
+                onClick={() => setIsMobileMenuOpen(false)}
               >
-                {isMenuOpen ? (
-                  <path d="M6 18L18 6M6 6l12 12" />
-                ) : (
-                  <path d="M4 6h16M4 12h16M4 18h16" />
-                )}
-              </svg>
-            </button>
+                {link.name}
+              </a>
+            ))}
           </div>
         </div>
       </div>
-
-      {/* Mobile Navigation */}
-      {isMenuOpen && (
-        <div className="md:hidden bg-black/95 backdrop-blur-xl border-t border-cyan-500/30">
-          <div className="px-4 py-4 space-y-2">
-            {navLinks.map((link) => (
-              <a
-                key={link.href}
-                href={link.href}
-                className="block px-4 py-3 text-cyan-400 font-mono text-sm font-semibold tracking-wider hover:text-purple-400 hover:bg-purple-500/10 rounded-lg transition-all duration-300"
-                onClick={() => setIsMenuOpen(false)}
-              >
-                {link.label}
-              </a>
-            ))}
-            
-            {/* Mobile Theme Toggle */}
-            <button
-              onClick={toggleTheme}
-              className="w-full text-left px-4 py-3 text-cyan-400 font-mono text-sm font-semibold tracking-wider hover:text-purple-400 hover:bg-purple-500/10 rounded-lg transition-all duration-300"
-            >
-              {theme === 'light' ? '🌙 Dark Mode' : '☀️ Light Mode'}
-            </button>
-          </div>
-        </div>
-      )}
     </nav>
   );
 };

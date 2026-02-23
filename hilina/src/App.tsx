@@ -1,12 +1,12 @@
 import { useRef } from 'react';
-import Navbar from './components/layout/Navbar';
-import Hero from './components/sections/Hero';
-import About from './components/sections/About';
-import Skills from './components/sections/Skills';
-import Projects from './components/sections/Projects';
-import Contact from './components/sections/Contact';
-import Footer from './components/layout/Footer';
-import { useTheme } from './hooks/useTheme';
+import Navbar from './components/layout/Navbar.tsx';
+import Hero from './components/sections/Hero.tsx';
+import About from './components/sections/About.tsx';
+import Skills from './components/sections/Skills.tsx';
+import Projects from './components/sections/Projects.tsx';
+import Contact from './components/sections/Contact.tsx';
+import Footer from './components/layout/Footer.tsx';
+import { useTheme } from './hooks/useTheme.ts';
 
 function App() {
   const { theme, toggleTheme } = useTheme();

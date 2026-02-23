@@ -1,3 +1,5 @@
+import '../../styles/animations.css';
+
 const Footer = () => {
   const currentYear = new Date().getFullYear();
 
@@ -25,11 +27,11 @@ const Footer = () => {
               <span className="text-green-400 font-mono text-xs sm:text-sm hidden sm:inline">ONLINE</span>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse delay-100" />
+              <div className="w-2 h-2 bg-cyan-400 rounded-full animate-pulse animation-delay-100" />
               <span className="text-cyan-400 font-mono text-xs sm:text-sm hidden sm:inline">ACTIVE</span>
             </div>
             <div className="flex items-center space-x-2">
-              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse delay-200" />
+              <div className="w-2 h-2 bg-purple-400 rounded-full animate-pulse animation-delay-200" />
               <span className="text-purple-400 font-mono text-xs sm:text-sm hidden sm:inline">READY</span>
             </div>
           </div>

@@ -1,5 +1,5 @@
-import React from 'react';
 import { skillGroups } from '../../data/skills';
+import '../../styles/animations.css';
 
 interface Skill {
   name: string;
@@ -152,16 +152,6 @@ const Skills = () => {
         </div>
       </div>
 
-      {/* Add custom animations */}
-      <style>{`
-        @keyframes shimmer {
-          0% { transform: translateX(-100%); }
-          100% { transform: translateX(100%); }
-        }
-        .animate-shimmer {
-          animation: shimmer 2s infinite;
-        }
-      `}</style>
     </section>
   );
 };

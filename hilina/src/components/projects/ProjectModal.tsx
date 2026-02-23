@@ -58,13 +58,12 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
       {/* Modal */}
       <div className="fixed inset-0 z-50 overflow-y-auto">
         <div className="flex min-h-full items-center justify-center p-4">
-          <div className="relative bg-white dark:bg-gray-800 rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
+          <div className="relative bg-slate-800 border border-cyan-500/20 rounded-lg shadow-xl max-w-4xl w-full max-h-[90vh] overflow-y-auto">
             
             {/* Close button */}
             <button
               onClick={onClose}
-              className="absolute top-4 right-4 text-gray-500 hover:text-gray-700 
-                       dark:text-gray-400 dark:hover:text-gray-200 z-10"
+              className="absolute top-4 right-4 text-gray-400 hover:text-gray-200 z-10"
               aria-label="Close modal"
             >
               <FaTimes size={24} />
@@ -73,7 +72,7 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
             {/* Content */}
             <div className="p-6">
               {/* Title */}
-              <h2 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
+              <h2 className="text-3xl font-bold text-white mb-4">
                 {title}
               </h2>
 
@@ -94,14 +93,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               )}
 
               {/* Quick Info */}
-              <div className="flex flex-wrap gap-4 mb-6 text-sm text-gray-600 dark:text-gray-300">
+              <div className="flex flex-wrap gap-4 mb-6 text-sm text-gray-300">
                 {duration && (
-                  <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">
+                  <span className="px-3 py-1 bg-slate-700 border border-slate-600 rounded-full">
                     📅 {duration}
                   </span>
                 )}
                 {role && (
-                  <span className="px-3 py-1 bg-gray-100 dark:bg-gray-700 rounded-full">
+                  <span className="px-3 py-1 bg-slate-700 border border-slate-600 rounded-full">
                     👤 {role}
                   </span>
                 )}
@@ -109,20 +108,20 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
               {/* Description */}
               <div className="mb-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-xl font-semibold text-white mb-3">
                   Overview
                 </h3>
-                <p className="text-gray-700 dark:text-gray-300 leading-relaxed">
+                <p className="text-gray-300 leading-relaxed">
                   {fullDescription}
                 </p>
               </div>
 
               {/* Features */}
               <div className="mb-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-xl font-semibold text-white mb-3">
                   Key Features
                 </h3>
-                <ul className="list-disc list-inside space-y-2 text-gray-700 dark:text-gray-300">
+                <ul className="list-disc list-inside space-y-2 text-gray-300">
                   {features.map((feature, index) => (
                     <li key={index}>{feature}</li>
                   ))}
@@ -132,10 +131,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
               {/* Challenges & Learnings */}
               {challenges && (
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-white mb-3">
                     Challenges Faced
                   </h3>
-                  <p className="text-gray-700 dark:text-gray-300 bg-gray-50 dark:bg-gray-700 p-4 rounded-lg">
+                  <p className="text-gray-300 bg-slate-700/50 p-4 rounded-lg">
                     {challenges}
                   </p>
                 </div>
@@ -143,10 +142,10 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
               {learnings && (
                 <div className="mb-6">
-                  <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                  <h3 className="text-xl font-semibold text-white mb-3">
                     What I Learned
                   </h3>
-                  <p className="text-gray-700 dark:text-gray-300 bg-blue-50 dark:bg-blue-900/20 p-4 rounded-lg">
+                  <p className="text-gray-300 bg-cyan-900/20 p-4 rounded-lg">
                     {learnings}
                   </p>
                 </div>
@@ -154,15 +153,14 @@ export const ProjectModal: React.FC<ProjectModalProps> = ({
 
               {/* Tech Stack */}
               <div className="mb-6">
-                <h3 className="text-xl font-semibold text-gray-900 dark:text-white mb-3">
+                <h3 className="text-xl font-semibold text-white mb-3">
                   Tech Stack
                 </h3>
                 <div className="flex flex-wrap gap-2">
                   {technologies.map((tech) => (
                     <span
                       key={tech}
-                      className="px-4 py-2 bg-gray-100 dark:bg-gray-700 
-                               text-gray-700 dark:text-gray-300 rounded-lg text-sm"
+                      className="px-4 py-2 bg-slate-700 border border-slate-600 text-gray-300 rounded-lg text-sm"
                     >
                       {tech}
                     </span>
