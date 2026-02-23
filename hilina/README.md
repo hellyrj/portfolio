@@ -1,15 +1,118 @@
-# React + TypeScript + Vite
+# Hilina Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern, cyber-themed portfolio website built with React, TypeScript, and Vite.
 
-Currently, two official plugins are available:
+## Tech Stack
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+### Frontend
+- **React 19** - UI library with latest features
+- **TypeScript** - Type-safe JavaScript
+- **Vite** - Fast build tool and dev server
+- **Tailwind CSS v4** - Utility-first CSS framework
+- **PostCSS** - CSS transformation tool
 
-## React Compiler
+### Database Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+#### Relational Databases
+- **PostgreSQL** - Advanced open-source relational database
+  - Features: ACID compliance, complex queries, JSON support
+  - Best for: Complex data relationships, financial apps, enterprise systems
+- **MariaDB** - Community-developed fork of MySQL
+  - Features: MySQL compatibility, enhanced performance
+  - Best for: Web applications, content management systems
+
+#### NoSQL Databases
+- **MongoDB** - Document-oriented NoSQL database
+  - Features: Flexible schema, horizontal scaling, rich queries
+  - Best for: Content management, real-time analytics, mobile apps
+
+#### ORM & Database Tools
+- **Prisma** - Modern TypeScript ORM
+  - Features: Type-safe database access, auto-generated client, migrations
+  - Works with: PostgreSQL, MySQL, MariaDB, MongoDB
+- **Drizzle ORM** - Lightweight TypeScript ORM
+  - Features: SQL-like API, minimal runtime, type safety
+  - Works with: PostgreSQL, MySQL, SQLite
+- **TypeORM** - Decorator-based ORM
+  - Features: Active Record pattern, migrations, relations
+  - Works with: PostgreSQL, MySQL, MariaDB, MongoDB, SQLite
+- **Mongoose** - MongoDB object modeling
+  - Features: Schema validation, middleware, query building
+  - Works with: MongoDB
+
+#### Database Connection & Management
+- **pg** - PostgreSQL client for Node.js
+- **mysql2** - MySQL/MariaDB driver with better performance
+- **mongodb** - Official MongoDB Node.js driver
+- **Redis** - In-memory data structure store (caching, sessions)
+
+### Development Tools
+- **ESLint** - Code linting and formatting
+- **React Icons** - Icon library
+- **Autoprefixer** - CSS vendor prefixing
+
+## Getting Started
+
+### Prerequisites
+- Node.js (v18 or higher)
+- npm or yarn
+
+### Installation
+```bash
+# Clone the repository
+git clone <repository-url>
+cd hilina
+
+# Install dependencies
+npm install
+
+# Start development server
+npm run dev
+```
+
+### Database Setup Examples
+
+#### PostgreSQL with Prisma
+```bash
+# Install dependencies
+npm install prisma @prisma/client pg
+
+# Initialize Prisma
+npx prisma init
+
+# Generate client
+npx prisma generate
+
+# Run migrations
+npx prisma migrate dev
+```
+
+#### MongoDB with Mongoose
+```bash
+# Install dependencies
+npm install mongoose mongodb
+
+# Connection example
+import mongoose from 'mongoose';
+
+mongoose.connect('mongodb://localhost:27017/myapp');
+```
+
+#### MariaDB with TypeORM
+```bash
+# Install dependencies
+npm install typeorm mysql2 reflect-metadata
+
+# Setup in tsconfig.json
+"experimentalDecorators": true,
+"emitDecoratorMetadata": true
+```
+
+### Available Scripts
+- `npm run dev` - Start development server
+- `npm run build` - Build for production
+- `npm run preview` - Preview production build
+- `npm run lint` - Run ESLint
 
 ## Expanding the ESLint configuration
 

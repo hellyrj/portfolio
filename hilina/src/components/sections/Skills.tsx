@@ -19,6 +19,7 @@ const Skills = () => {
     switch(category.toLowerCase()) {
       case 'frontend': return '🎨';
       case 'backend': return '⚙️';
+      case 'database': return '🗄️';
       case 'design': return '🎯';
       case 'tools': return '🛠️';
       default: return '💻';
@@ -86,9 +87,6 @@ const Skills = () => {
                   <div key={skill.name} className="space-y-2">
                     <div className="flex justify-between items-center">
                       <span className="text-gray-300 text-sm font-medium">{skill.name}</span>
-                      <span className={`text-sm font-bold ${getTextColor(index)}`}>
-                        {skill.level}%
-                      </span>
                     </div>
                     
                     {/* Progress Bar */}
@@ -109,10 +107,10 @@ const Skills = () => {
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-2">
                     <div className={`w-2 h-2 rounded-full ${getTextColor(index)}`} />
-                    <span className="text-gray-500 text-sm">Proficiency</span>
+                    <span className="text-gray-500 text-sm">Technologies</span>
                   </div>
                   <span className={`text-sm font-medium ${getTextColor(index)}`}>
-                    {Math.round(group.skills.reduce((acc, skill) => acc + skill.level, 0) / group.skills.length)}% Avg
+                    {group.skills.length}
                   </span>
                 </div>
               </div>

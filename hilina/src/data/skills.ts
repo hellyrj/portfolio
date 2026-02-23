@@ -35,5 +35,33 @@ export const skillGroups: skillGroup[] = [
 
             }
         ]
+    },
+    {
+        category: 'database',
+        title: 'Database & ORM',
+        icon: 'FaDatabase',
+        skills: [
+            {
+                name: 'PostgreSQL' , level: 80, icon: 'FaDatabase' , category: 'database'
+            },
+            {
+                name: 'MongoDB' , level: 75, icon: 'FaDatabase' , category: 'database'
+            },
+            {
+                name: 'MariaDB' , level: 70, icon: 'FaDatabase' , category: 'database'
+            },
+            {
+                name: 'Prisma' , level: 85, icon: 'FaDatabase' , category: 'database'
+            },
+            {
+                name: 'TypeORM' , level: 75, icon: 'FaDatabase' , category: 'database'
+            },
+            {
+                name: 'Mongoose' , level: 80, icon: 'FaDatabase' , category: 'database'
+            },
+            {
+                name: 'Redis' , level: 70, icon: 'FaDatabase' , category: 'database'
+            }
+        ]
     }
 ]
