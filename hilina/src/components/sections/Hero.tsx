@@ -33,13 +33,13 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
             <div className="space-y-3 sm:space-y-4">
               <div className="inline-flex items-center px-3 sm:px-4 py-1.5 sm:py-2 rounded-full border border-cyan-500/30 bg-cyan-500/5 backdrop-blur-sm">
                 <span className="text-cyan-400 font-mono text-xs sm:text-sm tracking-wider">
-                  HELLO_WORLD
+                  
                 </span>
               </div>
               
               <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl font-black leading-tight">
                 <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-purple-500 to-pink-500">
-                  I'm Hilina
+                  I'm Hilina 
                 </span>
               </h1>
               
@@ -92,13 +92,13 @@ const Hero: React.FC<HeroProps> = ({ onCtaClick }) => {
               
               {/* Profile Card */}
               <div className="relative border-2 border-cyan-500/50 rounded-3xl p-4 sm:p-6 md:p-8 bg-black/60 backdrop-blur-sm">
-                <div className="w-32 h-32 sm:w-48 sm:h-48 md:w-56 md:h-56 lg:w-64 lg:h-64 flex items-center justify-center">
+                <div  className="w-full h-full object-cover">
                   {/* Hexagon Frame */}
                   <div className="relative">
                     <div className="w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 bg-gradient-to-br from-cyan-500/20 to-purple-500/20 rounded-full flex items-center justify-center border-2 border-cyan-500/30">
-                      <span className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-purple-500">
-                        H
-                      </span>
+                        <img src="../images/image.png" alt=""   className="w-full h-full object-cover"
+                         />
+                      
                     </div>
                     
                     {/* Orbiting Elements - Hidden on mobile */}
